@@ -6,11 +6,13 @@
 
 <title>CHI PHÍ</title>
 
-<!-- Logo trên màn hình điện thoại -->
-<link rel="icon" type="image/png" href="ChatGPT%20Image%2011_03_33%2019%20thg%207,%202026.png">
+<!-- Icon cho trình duyệt -->
+<link rel="icon" type="image/png" href="logo.png">
 
-<link rel="apple-touch-icon" href="ChatGPT%20Image%2011_03_33%2019%20thg%207,%202026.png">
+<!-- Icon khi Add to Home Screen trên iPhone -->
+<link rel="apple-touch-icon" href="logo.png">
 
+<!-- Manifest -->
 <link rel="manifest" href="manifest.json">
 
 <meta name="theme-color" content="#d62828">
@@ -18,50 +20,57 @@
 <style>
 html,body{
     margin:0;
+    width:100%;
     height:100%;
     display:flex;
     justify-content:center;
     align-items:center;
     background:#d62828;
     font-family:Arial,sans-serif;
-    color:white;
+    color:#fff;
 }
 
 .loader{
     text-align:center;
 }
 
-img{
+.loader img{
     width:120px;
     height:120px;
-    border-radius:28px;
-    box-shadow:0 0 25px rgba(255,255,255,.3);
+    border-radius:26px;
+    box-shadow:0 0 25px rgba(255,255,255,.35);
 }
 
-h2{
-    margin-top:20px;
+.loader h2{
+    margin:18px 0 8px;
+    font-size:30px;
+}
+
+.loader p{
+    opacity:.85;
 }
 </style>
+
 </head>
 
 <body>
 
 <div class="loader">
-<img src="ChatGPT%20Image%2011_03_33%2019%20thg%207,%202026.png">
-<h2>CHI PHÍ</h2>
-<p>Đang mở ứng dụng...</p>
+    <img src="logo.png" alt="CHI PHÍ">
+    <h2>CHI PHÍ</h2>
+    <p>Đang mở ứng dụng...</p>
 </div>
 
 <script>
-
+// Đăng ký Service Worker
 if ("serviceWorker" in navigator) {
-    navigator.serviceWorker.register("sw.js");
+    navigator.serviceWorker.register("./sw.js");
 }
 
+// Chuyển sang Apps Script
 setTimeout(function () {
-    window.location.href="https://script.google.com/macros/s/AKfycbx3hYgvOz31LSAuih7gWl8rMfkQYccGALL_ftXLKO0J10iGJA5AdqZ9hZ9Ab5AUVVTolQ/exec";
-},1200);
-
+    window.location.href = "https://script.google.com/macros/s/AKfycbx3hYgvOz31LSAuih7gWl8rMfkQYccGALL_ftXLKO0J10iGJA5AdqZ9hZ9Ab5AUVVTolQ/exec";
+}, 1200);
 </script>
 
 </body>
