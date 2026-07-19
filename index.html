@@ -1,76 +1,110 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport"
+content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
 
 <title>CHI PHÍ</title>
 
-<!-- Icon cho trình duyệt -->
-<link rel="icon" type="image/png" href="logo.png">
-
-<!-- Icon khi Add to Home Screen trên iPhone -->
-<link rel="apple-touch-icon" href="logo.png">
-
-<!-- Manifest -->
 <link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="logo.png">
+<link rel="icon" href="logo.png">
 
 <meta name="theme-color" content="#d62828">
 
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="CHI PHÍ">
+
 <style>
+
 html,body{
-    margin:0;
-    width:100%;
-    height:100%;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    background:#d62828;
-    font-family:Arial,sans-serif;
-    color:#fff;
+margin:0;
+padding:0;
+width:100%;
+height:100%;
+overflow:hidden;
+background:#d62828;
+font-family:Arial,sans-serif;
 }
 
-.loader{
-    text-align:center;
+#loading{
+position:fixed;
+left:0;
+top:0;
+width:100%;
+height:100%;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+background:#d62828;
+color:white;
 }
 
-.loader img{
-    width:120px;
-    height:120px;
-    border-radius:26px;
-    box-shadow:0 0 25px rgba(255,255,255,.35);
+#loading img{
+width:120px;
+height:120px;
+border-radius:30px;
+box-shadow:0 0 30px rgba(255,255,255,.35);
 }
 
-.loader h2{
-    margin:18px 0 8px;
-    font-size:30px;
+#loading h2{
+margin-top:25px;
+font-size:34px;
 }
 
-.loader p{
-    opacity:.85;
+#loading p{
+opacity:.8;
+font-size:18px;
 }
+
+iframe{
+position:fixed;
+left:0;
+top:0;
+width:100%;
+height:100%;
+border:none;
+display:none;
+}
+
 </style>
 
 </head>
 
 <body>
 
-<div class="loader">
-    <img src="logo.png" alt="CHI PHÍ">
-    <h2>CHI PHÍ</h2>
-    <p>Đang mở ứng dụng...</p>
+<div id="loading">
+
+<img src="logo.png">
+
+<h2>CHI PHÍ</h2>
+
+<p>Đang mở ứng dụng...</p>
+
 </div>
 
+<iframe id="app"
+src="https://script.google.com/macros/s/AKfycbx3hYgvOz31LSAuih7gWl8rMfkQYccGALL_ftXLKO0J10iGJA5AdqZ9hZ9Ab5AUVVTolQ/exec">
+</iframe>
+
 <script>
-// Đăng ký Service Worker
-if ("serviceWorker" in navigator) {
-    navigator.serviceWorker.register("./sw.js");
+
+if("serviceWorker" in navigator){
+navigator.serviceWorker.register("./sw.js");
 }
 
-// Chuyển sang Apps Script
-setTimeout(function () {
-    window.location.href = "https://script.google.com/macros/s/AKfycbx3hYgvOz31LSAuih7gWl8rMfkQYccGALL_ftXLKO0J10iGJA5AdqZ9hZ9Ab5AUVVTolQ/exec";
-}, 1200);
+setTimeout(function(){
+
+document.getElementById("loading").style.display="none";
+
+document.getElementById("app").style.display="block";
+
+},1200);
+
 </script>
 
 </body>
