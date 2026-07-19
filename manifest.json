@@ -1,1 +1,15 @@
-
+{
+  "name": "CHI PHÍ",
+  "short_name": "CHI PHÍ",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#d62828",
+  "theme_color": "#d62828",
+  "icons": [
+    {
+      "src": "icon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
